@@ -7,7 +7,7 @@ const urlGet = 'https://text-translator2.p.rapidapi.com/getLanguages'
 const optionsGet = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '7eb18955c9msh50aedbc60322b48p1e54d0jsn7013dc1d83f3',
+		'X-RapidAPI-Key': '', // KEY BORRADA POR SEGURIDAD
 		'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
 	}
 }
@@ -34,7 +34,7 @@ async function getLanguages (url, options) {
         })
 
     } catch (error) {
-        console.log(error)
+        showError('Error en la solicitud')
     }
 }
 
@@ -55,7 +55,7 @@ btnTranslate.addEventListener('click', () => {
         method: 'POST',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'X-RapidAPI-Key': '7eb18955c9msh50aedbc60322b48p1e54d0jsn7013dc1d83f3',
+            'X-RapidAPI-Key': '', // KEY BORRADA POR SEGURIDAD
             'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
         },
         body: new URLSearchParams({
@@ -76,7 +76,27 @@ async function postTranslateLanguages(url, options) {
         translatedTex.textContent = result.data.translatedText
     
     } catch (error) {
-        console.log(error)
+       showError('Error en la solicitud de traducción')
     }
+}
+
+function showError(message) {
+    const mainContainer = document.getElementById('main-container')
+    mainContainer.innerHTML = ' '
+    const fail = document.createElement('p')
+    fail.classList.add('text-center', 'text-white', 'fs-1')
+    fail.innerText = message
+
+    const reload = document.createElement('div')
+    reload.classList.add('d-flex', 'justify-content-center')
+    reload.innerHTML = `<button class='btnReload' id='btnReload'>Volver a intentar</button>`
+
+    mainContainer.appendChild(fail)
+    mainContainer.appendChild(reload)
+
+    const btnReload = document.getElementById('btnReload')
+    btnReload.addEventListener('click', () => {
+        location.reload()
+    })
 }
 

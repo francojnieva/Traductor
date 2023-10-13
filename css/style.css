@@ -47,7 +47,7 @@ textarea {
     }
 }
 
-.btnTranslate {
+.btnTranslate, .btnReload {
     background-color: #d202a5;
     border: .1rem solid #d202a5;
     color: white;
