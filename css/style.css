@@ -3,3 +3,55 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #13121b;
+}
+
+header h1 {
+    color: #d202a5;
+}
+
+.logo-app {
+    width: 3rem;
+    margin-right: 1.2rem;
+} 
+
+.arrow {
+    width: 3rem;
+    @media (max-width: 700px) {
+        transform: rotate(90deg);
+        margin-left: .8rem;
+        padding: .5rem 0rem;
+    }
+}
+
+.translate-select {
+    background-color: #13121b;
+    color: white;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+textarea {
+    padding: .5rem;
+    resize: none;
+    outline: none;
+    color: white;
+    background-color: #13121b;
+    
+    @media (min-width: 1024px) {
+        width: 38%;
+    }
+}
+
+.btnTranslate, .btnReload {
+    background-color: #d202a5;
+    border: .1rem solid #d202a5;
+    color: white;
+    padding: .5rem;
+    border-radius: .3rem;
+}
+
