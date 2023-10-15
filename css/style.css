@@ -6,6 +6,11 @@
 
 body {
     background-color: #13121b;
+    transition: background-color 1s;
+}
+
+main {
+    min-height: 100vh;
 }
 
 header h1 {
@@ -33,6 +38,7 @@ header h1 {
     border: none;
     outline: none;
     font-size: 1.1rem;
+    border-radius: .5rem;
 }
 
 textarea {
@@ -41,10 +47,6 @@ textarea {
     outline: none;
     color: white;
     background-color: #13121b;
-    
-    @media (min-width: 1024px) {
-        width: 38%;
-    }
 }
 
 .btnTranslate, .btnReload {
@@ -55,3 +57,41 @@ textarea {
     border-radius: .3rem;
 }
 
+.container input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    transition: all 0.3s;
+    fill: #666;
+    
+}
+  
+.container svg:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    
+}
+  
+.container input:checked ~ svg {
+    fill: #ffe629;
+}
+
+.lightTheme {
+    background-color: #f8f8f8;
+}
+
+.first-textarea, .second-textarea {
+    background-color:#f8f8f8;
+    border: .1rem solid #d202a5;
+    transition: background-color 1.1s;
+    color: black;
+}
